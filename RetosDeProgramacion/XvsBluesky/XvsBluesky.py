@@ -27,3 +27,29 @@ fecha de creación y número total de likes.
 Controla errores en duplicados o acciones no permitidas.
 """
 
+class red_social:
+    def __init__(self):
+        self.usuarios = {}
+    def registrar_usuario(self, nombre, id):
+        if id in self.usuarios:
+            print("El id ya existe")
+        else:
+            self.usuarios[id] = {"nombre": nombre, "siguiendo": set(), "seguido": set(), "posts": {}}
+
+    def seguir_usuario(self, id, id_seguir):
+        if id not in self.usuarios or id_seguir not in self.usuarios:
+            print("El id no existe")
+        else:
+            self.usuarios[id]["siguiendo"].add(id_seguir)
+            self.usuarios[id_seguir]["seguido"].add(id)
+
+    def dejar_seguir_usuario(self, id, id_seguir):
+        if id not in self.usuarios or id_seguir not in self.usuarios:
+            print("El id no existe")
+        else:
+            self.usuarios[id]["siguiendo"].remove(id_seguir)
+            self.usuarios[id_seguir]["seguido"].remove(id)
+
+    def crear_post(self, id, texto, id_post):
+
+

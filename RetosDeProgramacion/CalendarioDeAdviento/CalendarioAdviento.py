@@ -49,11 +49,11 @@ def descubrir_dia():
             print("Día no válido. Intenta de nuevo.")
             return
 
-        if calendario[dia - 1] == "****":
+        if calendario[dia - 1] == "**":
             print("Ya has descubierto este día.")
         else:
             print(f"Has descubierto el día {dia}. ¡Aquí está tu regalo!")
-            calendario[dia - 1] = "****"
+            calendario[dia - 1] = "**"
             calendario_adviento()
 
     except ValueError:
